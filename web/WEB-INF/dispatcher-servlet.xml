@@ -10,16 +10,25 @@
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd" >
 
-    <context:component-scan base-package="controller"/>
+<!--    <context:component-scan base-package="controller"/>-->
 
-    <mvc:default-servlet-handler/>
+<!--    <mvc:default-servlet-handler/>-->
 
-    <mvc:annotation-driven/>
+<!--    <mvc:annotation-driven/>-->
 
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-    id="internalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp/"/>
-        <property name="suffix" value=".jsp"/>
+<!--    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"-->
+<!--    id="internalResourceViewResolver">-->
+<!--        <property name="prefix" value="/WEB-INF/jsp/"/>-->
+<!--        <property name="suffix" value=".jsp"/>-->
+<!--    </bean>-->
+
+    <bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/hello">helloController1</prop>
+            </props>
+        </property>
     </bean>
+    <bean id="helloController1" class="controller.HelloController1"/>
 
 </beans>
